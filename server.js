@@ -1,19 +1,13 @@
 console.log("Hi");
 
 const express = require('express');
+const path = require('path');
 const app = express();
-const fs = require('fs');
 
-app.set("view engine", "ejs");
-
-const style = fs.readFileSync('views/styles.css');
-app.get('/styles.css', (req, res) => {
-    res.set('Content-Type', 'text/css');
-    res.send(style);
-});
+app.use(express.static('./public'));
 
 app.get("/", (req, res) => {
-    res.render("index")
+    res.sendFile(path.resolve('./views/index.html'))
 })
 
 app.listen(3000);

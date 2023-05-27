@@ -2,13 +2,19 @@ body {
 margin: 0;
 }
 
+body > * {
+    padding: 0 20px;
+}
+
 header {
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    background-color: #ca4747;
+    background-image: url("https://unsplash.it/2000/400");
+    background-size: cover;
+    /* background-position: 0 50%; */
 }
 
 header > nav > ul {
