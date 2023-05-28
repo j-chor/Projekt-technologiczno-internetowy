@@ -17,21 +17,28 @@ function showOrHideError(input, message) {
 function checkInputLength(input, minLength) {
     if (input.value.length < minLength) {
         showOrHideError(input, `${input.name} powinno zawierać minimum ${minLength} znaków`);
+        return false;
     }
     else showOrHideError(input, '');
+    return true;
 }
 function checkPasswordValue() {
     if (password.value !== password2.value) {
         showOrHideError(password2, "Hasła się różnią!")
+        return false;
     }
+    else showOrHideError(password2, "")
+    return true;
 }
 
 function checkEmail(email) {
-    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{​​1,3}​​\.[0-9]{​​1,3}​​\.[0-9]{​​1,3}​​\.[0-9]{​​1,3}​​\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{​​2,}​​))$/
+    const regex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
     if (!(regex.test(email.value))) {
         showOrHideError(email, "Adres email nieprawidłowy");
+        return false;
     } else {
         showOrHideError(email, "");
+        return true;
     }
 }
 
@@ -40,9 +47,11 @@ resetButton.addEventListener('click', () => {
 });
 
 sendButton.addEventListener('click', (e) => {
-    checkInputLength(username, minUsernameLength);
-    checkInputLength(password, minPasswordLength);
-    checkPasswordValue();
-    checkEmail(email);
-    
+    if(!(checkInputLength(username, minUsernameLength) && checkInputLength(password, minPasswordLength) && checkPasswordValue() && checkEmail(email))) {
+        e.preventDefault();
+    }
+    // checkInputLength(username, minUsernameLength);
+    // checkInputLength(password, minPasswordLength);
+    // checkPasswordValue();
+    // checkEmail(email);
 });
