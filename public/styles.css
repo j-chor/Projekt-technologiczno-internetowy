@@ -3,16 +3,21 @@ margin: 0;
 }
 
 body > * {
-    padding: 0 20px;
+    padding: 0 30px;
+}
+
+div#header {
+    padding: 0;
 }
 
 header {
     margin: 0;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    background-image: url("https://unsplash.it/2000/400");
+    background-image: url("clouds.png");
     background-size: cover;
     /* background-position: 0 50%; */
 }
