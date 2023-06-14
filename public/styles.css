@@ -14,9 +14,9 @@ header {
     margin: 0;
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     background-image: url("clouds.png");
     background-size: cover;
     /* background-position: 0 50%; */

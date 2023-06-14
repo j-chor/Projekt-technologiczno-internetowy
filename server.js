@@ -25,4 +25,6 @@ app.post("/send", (req, res) => {
 })
 
 app.listen(3000);
+console.log("listening at port 3000")
+console.log("localhost:3000/")
 
