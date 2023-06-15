@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kontakt</title>
+</head>
+
+<body>
+    <header id="header"></header>
+    <main>
+        <form action="/send" method="post">
+            <label for="username">Imię: </label>
+            <input type="text" placeholder="Podaj imię" id="username" name="imię" required>
+            <p class="error"></p>
+
+            <label for="email">Email: </label>
+            <input type="email" placeholder="Podaj email" id="email" name="email" required>
+            <p class="error"></p>
+
+            <label for="message">Wiadomość: </label>
+            <input type="text" placeholder="Napisz wiadomość" id="message" name="wiadomość" required>
+            <p class="error"></p>
+
+            <input type="submit" id="send" value="Wyślij formularz">
+        </form>
+    </main>
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="header.js"></script>
+    <script src="form.js"></script>
+</body>
+
+</html>

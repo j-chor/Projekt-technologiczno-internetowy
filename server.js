@@ -2,6 +2,7 @@ console.log("Hi");
 
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const app = express();
 
 app.use(express.static('./public'));
@@ -19,9 +20,18 @@ app.get("/form", (req, res) => {
     res.sendFile(path.resolve('views/form.html'))
 })
 
+app.get("/info", (req, res) => {
+    res.sendFile(path.resolve('views/info.html'))
+})
+
 app.post("/send", (req, res) => {
     console.log(req.body)
-    res.send("Succesfull")
+    fs.appendFile('messages.txt', JSON.stringify(req.body) + '\n', (err) => {
+        if (err) throw err;
+        console.log('Zapisano wiadomość do pliku');
+      });
+
+    res.redirect("/")
 })
 
 app.listen(3000);
